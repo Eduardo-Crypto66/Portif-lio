@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eduardo Alves — Desenvolvedor</title>
+<meta name="description" content="Portfólio de Eduardo Alves: sistemas web de ponta a ponta — AgroPlan, Orbitra, integrações para saúde e landing pages.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d0e0b'/%3E%3Cpath d='M6 20c4-6 8-6 10-2s6 4 10-2' stroke='%23d6f84c' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0e0b; --bg-2:#141611; --bg-3:#1b1e17;
+  --line:#2a2e24; --line-2:#3a3f32;
+  --ink:#eeeee4; --ink-2:#b4b6a6; --ink-3:#7c7f70;
+  --lime:#d6f84c; --lime-ink:#141a00;
+  --agro:#3fae5a; --orb:#7b7cff; --amber:#e8720c; --gold:#d4af37;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Inter Tight",system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --r:14px; --gut:clamp(16px,4vw,56px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--lime);color:var(--lime-ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+.serif{font-family:var(--serif);font-weight:400}
+em.serif,.it{font-style:italic}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(13,14,11,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(214,248,76,.15);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(214,248,76,0)}}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14.5px;color:var(--ink-2)}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;font-weight:600;font-size:14.5px;border:1px solid var(--line-2);transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-1px);border-color:var(--ink-3)}
+.btn.lime{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+.btn.lime:hover{background:#e2ff74}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 40px;overflow:hidden;isolation:isolate}
+#topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 70% at 50% 110%,var(--bg) 30%,transparent 70%),linear-gradient(to bottom,var(--bg),transparent 18%)}
+.hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--line-2);background:rgba(20,22,17,.6);backdrop-filter:blur(6px);font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.chip b{width:7px;height:7px;border-radius:50%;background:var(--lime)}
+h1.name{font-family:var(--serif);font-weight:400;font-size:clamp(64px,13.5vw,212px);line-height:.86;letter-spacing:-.035em}
+h1.name .it{color:var(--lime)}
+.hero-foot{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-foot p{font-size:clamp(18px,1.7vw,22px);color:var(--ink-2);max-width:34ch;line-height:1.45}
+.hero-foot p strong{color:var(--ink);font-weight:500}
+.coords{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.coords div{border-left:1px solid var(--line-2);padding-left:14px}
+.coords strong{display:block;font-family:var(--serif);font-size:44px;line-height:1;font-weight:400}
+.coords span{font-size:13px;color:var(--ink-3)}
+.scroll-hint{position:absolute;right:var(--gut);top:50%;writing-mode:vertical-rl;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-3)}
+@media (max-width:1100px){.scroll-hint{display:none}}
+@media (max-width:860px){.hero-foot{grid-template-columns:1fr}.coords strong{font-size:36px}}
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--bg-2)}
+.marquee .track{display:flex;gap:44px;width:max-content;animation:mq 42s linear infinite}
+.marquee span{font-family:var(--serif);font-size:30px;white-space:nowrap;color:var(--ink-2)}
+.marquee span:nth-child(odd){font-style:italic;color:var(--ink)}
+.marquee span::after{content:"✦";font-style:normal;margin-left:44px;font-size:16px;color:var(--lime);vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- index ---------- */
+section{position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,84px);line-height:.95;letter-spacing:-.02em}
+.index{padding:120px 0 80px}
+.idx-list{list-style:none;border-top:1px solid var(--line)}
+.idx-list a{display:grid;grid-template-columns:70px 1fr auto 40px;align-items:center;gap:20px;padding:26px 0;border-bottom:1px solid var(--line);transition:padding .35s cubic-bezier(.2,.8,.2,1),color .3s}
+.idx-list a:hover{padding-left:16px;color:var(--lime)}
+.idx-list .n{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.idx-list .t{font-family:var(--serif);font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-.015em}
+.idx-list .d{font-size:14px;color:var(--ink-3);text-align:right}
+.idx-list .ar{font-size:22px;transition:transform .3s}
+.idx-list a:hover .ar{transform:translateX(6px) rotate(-45deg)}
+.peek{position:fixed;left:0;top:0;width:340px;aspect-ratio:16/10;border-radius:12px;overflow:hidden;pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.85) rotate(-3deg);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.6);border:1px solid var(--line-2)}
+.peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-3deg)}
+.peek img{width:100%;height:100%;object-fit:cover;object-position:top left;position:absolute;inset:0;opacity:0;transition:opacity .2s}
+.peek img.on{opacity:1}
+@media (max-width:860px){.idx-list a{grid-template-columns:44px 1fr 24px}.idx-list .d{display:none}.peek{display:none}}
+
+/* ---------- case ---------- */
+.case{padding:110px 0;border-top:1px solid var(--line)}
+.case-top{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.case-top .lbl{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+.case-top .lbl .dot{width:10px;height:10px;border-radius:3px;background:var(--c,var(--lime))}
+.case h3{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8.5vw,132px);line-height:.88;letter-spacing:-.03em}
+.case h3 .it{color:var(--c,var(--lime))}
+.case .lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);line-height:1.5}
+.case .lead strong{color:var(--ink);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:6px;background:var(--bg-3);border:1px solid var(--line);color:var(--ink-2)}
+@media (max-width:860px){.case-top{grid-template-columns:1fr;gap:24px}}
+
+/* browser frame */
+.browser{border-radius:var(--r);overflow:hidden;background:var(--bg-3);border:1px solid var(--line-2);box-shadow:0 40px 100px -30px rgba(0,0,0,.8)}
+.browser .bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-bottom:1px solid var(--line)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.browser .bar .url{margin-left:12px;flex:1;max-width:340px;height:22px;border-radius:6px;background:var(--bg);display:flex;align-items:center;padding:0 10px;font-family:var(--mono);font-size:11px;color:var(--ink-3);overflow:hidden;white-space:nowrap}
+.browser .view{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff}
+.browser .view img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.zoomable{cursor:zoom-in}
+
+/* phone frame */
+.phone{width:100%;max-width:270px;aspect-ratio:9/19.2;border-radius:38px;padding:9px;background:#0a0a0a;border:1px solid #2c2c2c;box-shadow:0 30px 80px -20px rgba(0,0,0,.8),inset 0 0 0 2px #1a1a1a;position:relative}
+.phone .scr{width:100%;height:100%;border-radius:30px;overflow:hidden;background:#fff;position:relative}
+.phone .scr img,.phone .scr video{width:100%;height:100%;object-fit:cover;object-position:top}
+/* vídeo 9:16 inteiro, sem corte nas bordas */
+.phone.vid{aspect-ratio:auto}
+.phone.vid .scr{height:auto;aspect-ratio:1080/1920}
+.phone.vid .scr video{object-fit:contain;background:#f4f6f4}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:76px;height:20px;border-radius:12px;background:#0a0a0a;z-index:2}
+
+/* AgroPlan layout */
+.agro-grid{display:grid;grid-template-columns:1fr 270px;gap:28px;align-items:start}
+.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:28px 0 10px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.strip figure{flex:0 0 min(420px,78vw);scroll-snap-align:start}
+.strip figure .browser .view{aspect-ratio:16/10}
+.strip figcaption{margin-top:10px;font-size:14px;color:var(--ink-3)}
+.strip figcaption b{color:var(--ink);font-weight:500}
+@media (max-width:860px){.agro-grid{grid-template-columns:1fr}.agro-grid .phone{margin:0 auto}}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);margin-top:48px;overflow:hidden}
+.facts div{padding:24px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts strong{display:block;font-family:var(--serif);font-size:52px;line-height:1;font-weight:400}
+.facts span{font-size:14px;color:var(--ink-3)}
+@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.panel{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--bg-2)}
+.panel h4{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;margin-bottom:6px}
+.panel > p{color:var(--ink-3);font-size:15px;margin-bottom:22px}
+.two > *,.agro-grid > *,.case-top > *{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr}.panel{padding:22px 18px}}
+
+/* layers diagram */
+.layers{display:flex;flex-direction:column;gap:6px}
+.layer{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 16px;border-radius:10px;border:1px solid var(--line-2);background:var(--bg-3);transition:transform .3s,border-color .3s}
+.layer:hover{transform:translateX(6px);border-color:var(--agro)}
+.layer b{font-family:var(--mono);font-size:13px;font-weight:500}
+.layer span{font-size:13px;color:var(--ink-3);text-align:right}
+.layer:nth-child(1){margin-right:0}
+.layer.db{background:rgba(63,174,90,.12);border-color:rgba(63,174,90,.5)}
+.arrow{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-left:16px}
+
+.feat{list-style:none;display:grid;gap:2px}
+.feat li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.feat li:last-child{border:0}
+.feat li::before{content:attr(data-i);font-family:var(--mono);font-size:12px;color:var(--agro);padding-top:3px}
+.feat b{font-weight:600}
+.feat span{color:var(--ink-3);font-size:15px}
+
+/* Orbitra compare */
+.compare{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);aspect-ratio:16/10;user-select:none;touch-action:pan-y;cursor:ew-resize;box-shadow:0 40px 100px -30px rgba(0,0,0,.8)}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;pointer-events:none}
+.compare .top{clip-path:inset(0 0 0 var(--p,50%))}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:var(--orb);transform:translateX(-1px)}
+.compare .handle::after{content:"◐";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--orb);color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 8px 30px rgba(123,124,255,.5)}
+.compare .tagL,.compare .tagR{position:absolute;top:14px;font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:6px;background:rgba(0,0,0,.65);color:#fff}
+.compare .tagL{left:14px}.compare .tagR{right:14px}
+.phones{display:flex;gap:20px;justify-content:center;margin-top:56px;perspective:1400px}
+.phones .phone{max-width:240px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.phones .phone:nth-child(1){transform:rotateY(14deg) translateY(30px)}
+.phones .phone:nth-child(3){transform:rotateY(-14deg) translateY(30px)}
+.phones:hover .phone{transform:none}
+@media (max-width:860px){.phones{overflow-x:auto;justify-content:flex-start;scroll-snap-type:x mandatory;padding-bottom:10px}.phones .phone{flex:0 0 220px;transform:none!important;scroll-snap-align:center}}
+.orb-log{font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--ink-2)}
+.orb-log div{display:grid;grid-template-columns:62px 70px 1fr;gap:10px;border-bottom:1px dashed var(--line);padding:4px 0;opacity:0;transform:translateY(6px);transition:all .5s}
+.orb-log.in div{opacity:1;transform:none}
+.orb-log .src{color:var(--orb)}
+.orb-log .src.wa{color:#25d366}
+.orb-log .src.api{color:var(--lime)}
+
+/* Epeople flow */
+.flow{overflow-x:auto}
+.flow svg{width:100%;min-width:720px;height:auto;display:block}
+.flow .node rect{fill:var(--bg-3);stroke:var(--line-2)}
+.flow .node.hl rect{fill:rgba(214,248,76,.08);stroke:var(--lime)}
+.flow text{font-family:var(--sans);fill:var(--ink)}
+.flow .sub{fill:var(--ink-3);font-size:12px;font-family:var(--mono)}
+.flow .wire{stroke:var(--line-2);stroke-width:1.5;fill:none}
+.flow .pulse{stroke:var(--lime);stroke-width:2;fill:none;stroke-dasharray:6 120;animation:flow 2.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-126}}
+.code{font-family:var(--mono);font-size:13px;line-height:1.7;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px;overflow-x:auto;color:var(--ink-2);white-space:pre}
+.code .k{color:var(--lime)}.code .s{color:#f2c879}.code .c{color:var(--ink-3)}
+
+/* landings */
+.land-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.land .browser .view{aspect-ratio:16/11;background:#000}
+.land .browser .view img{height:auto;object-fit:initial;transition:transform 6s cubic-bezier(.4,0,.2,1)}
+.land:hover .browser .view img{transform:translateY(calc(-100% + var(--vh,400px)))}
+.land .meta{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-top:18px}
+.land h4{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1}
+.land p{color:var(--ink-3);font-size:15px;margin-top:6px;max-width:42ch}
+.land .sw{display:flex;gap:6px;margin-top:4px}
+.land .sw i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.15)}
+.hint{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:8px}
+@media (max-width:860px){.land-grid{grid-template-columns:1fr}}
+
+/* lab */
+.lab-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.card:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.card .img{aspect-ratio:4/3;overflow:hidden;background:#fff;position:relative}
+.card .img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .img.slides{display:flex;gap:8px;padding:18px 14px;background:linear-gradient(135deg,#ece9ff,#f6f5fb)}
+.card .img.slides img{flex:1;min-width:0;object-fit:contain;border-radius:6px;box-shadow:0 8px 20px rgba(40,30,90,.18)}
+.card .bd{padding:20px 22px 24px}
+.card h4{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;margin-bottom:6px}
+.card p{color:var(--ink-3);font-size:15px}
+.card .wa{aspect-ratio:4/3;background:#0b141a;padding:20px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.bub{max-width:82%;padding:9px 12px;border-radius:10px;font-size:13.5px;line-height:1.4;color:#e9edef}
+.bub.me{align-self:flex-end;background:#005c4b;border-top-right-radius:2px}
+.bub.bot{background:#202c33;border-top-left-radius:2px}
+.bub small{display:block;font-family:var(--mono);font-size:10px;color:#8696a0;margin-top:3px}
+@media (max-width:960px){.lab-grid{grid-template-columns:1fr}}
+
+/* about */
+.about{padding:120px 0;border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px}
+.about blockquote{font-family:var(--serif);font-size:clamp(34px,4.2vw,58px);line-height:1.04;letter-spacing:-.015em}
+.about blockquote .it{color:var(--lime)}
+.about .txt p{color:var(--ink-2);margin-bottom:16px}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
+.skills h5{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.skills ul{list-style:none;display:grid;gap:6px;font-size:15px}
+.skills li::before{content:"→ ";color:var(--lime);font-family:var(--mono)}
+@media (max-width:860px){.about-grid,.skills{grid-template-columns:1fr;gap:32px}}
+
+/* contact */
+.contact{padding:140px 0 60px;border-top:1px solid var(--line);overflow:hidden}
+.contact .big{font-family:var(--serif);font-size:clamp(64px,14vw,220px);line-height:.85;letter-spacing:-.04em;display:block;transition:color .3s}
+.contact .big .it{color:var(--lime)}
+.contact a.big:hover{color:var(--lime)}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px}
+.contact-row a{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:999px;border:1px solid var(--line-2);font-weight:500;transition:all .25s}
+.contact-row a:hover{background:var(--ink);color:var(--bg)}
+.contact-row a small{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.contact-row a:hover small{color:var(--bg)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0;margin-top:100px;border-top:1px solid var(--line)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(5,6,4,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:min(1500px,100%);max-height:100%;border-radius:10px;box-shadow:0 30px 100px rgba(0,0,0,.6)}
+.lb .x{position:absolute;top:18px;right:22px;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><i></i>Eduardo Alves</a>
+    <ul>
+      <li><a href="#agroplan">AgroPlan</a></li>
+      <li><a href="#orbitra">Orbitra</a></li>
+      <li><a href="#integracao">Integração</a></li>
+      <li><a href="#landings">Landing pages</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+    <a href="#contato" class="btn lime">Vamos conversar</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <canvas id="topo" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="kicker">
+      <span class="chip"><b></b>Disponível para projetos</span>
+      <span class="chip" id="clock">Brasil · --:--</span>
+    </div>
+    <h1 class="name">Eduardo<br><span class="it">Alves</span></h1>
+    <div class="hero-foot">
+      <p>Desenvolvedor que transforma <strong>rotina de campo, de clínica e de balcão</strong> em software — do modelo de dados à tela que alguém usa no celular.</p>
+      <div class="coords">
+        <div><strong>5+</strong><span>produtos construídos</span></div>
+        <div><strong>4</strong><span>camadas no AgroPlan</span></div>
+        <div><strong>3</strong><span>domínios: agro, saúde e finanças</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">ROLE · AS CURVAS RESPONDEM AO MOUSE</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>PostGIS</span><span>Supabase</span><span>Prisma</span><span>Tailwind</span><span>Python</span><span>n8n</span><span>Leaflet</span><span>Docker</span><span>PWA</span>
+    <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>PostGIS</span><span>Supabase</span><span>Prisma</span><span>Tailwind</span><span>Python</span><span>n8n</span><span>Leaflet</span><span>Docker</span><span>PWA</span>
+  </div>
+</div>
+
+<!-- ============ INDEX ============ -->
+<section class="index">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Trabalho <span class="it serif">selecionado</span></h2>
+      <span class="mono">2026 · 5 projetos</span>
+    </div>
+    <ul class="idx-list rv d1" id="idx">
+      <li><a href="#agroplan" data-peek="0"><span class="n">01</span><span class="t">AgroPlan</span><span class="d">Gestão agrícola · SaaS</span><span class="ar">→</span></a></li>
+      <li><a href="#orbitra" data-peek="1"><span class="n">02</span><span class="t">Orbitra</span><span class="d">Kanban + finanças · PWA</span><span class="ar">→</span></a></li>
+      <li><a href="#integracao" data-peek="2"><span class="n">03</span><span class="t">Conector de integração</span><span class="d">Saúde · RIS/HIS → PACS</span><span class="ar">→</span></a></li>
+      <li><a href="#landings" data-peek="3"><span class="n">04</span><span class="t">Parador Texas Bar</span><span class="d">Landing page</span><span class="ar">→</span></a></li>
+      <li><a href="#landings" data-peek="4"><span class="n">05</span><span class="t">Restaurante Dubai</span><span class="d">Landing page</span><span class="ar">→</span></a></li>
+    </ul>
+  </div>
+  <div class="peek" id="peek">
+    <img src="assets/agroplan/mapa.jpg" alt="">
+    <img src="assets/orbitra/quadro-light.jpg" alt="">
+    <img src="assets/outros/mer-oficina.png" alt="">
+    <img src="assets/landings/texas.jpg" alt="">
+    <img src="assets/landings/dubai.jpg" alt="">
+  </div>
+</section>
+
+<!-- ============ 01 AGROPLAN ============ -->
+<section class="case" id="agroplan" style="--c:var(--agro)">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="rv">
+        <div class="lbl"><span class="dot"></span><span class="mono">01 — Produto · 2026 · em desenvolvimento</span></div>
+        <h3>Agro<span class="it">Plan</span></h3>
+      </div>
+      <div class="rv d1">
+        <p class="lead">Sistema de gestão agrícola multi-fazenda construído em torno do <strong>talhão</strong>: cada operação, litro de diesel e saco de adubo vira custo por hectare e histórico rastreável — com <strong>QR Code na entrada da área</strong> para consultar tudo pelo celular, sem login.</p>
+        <div class="tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Tailwind 4</span><span class="tag">Supabase</span><span class="tag">PostGIS</span><span class="tag">RLS</span><span class="tag">Leaflet</span><span class="tag">Zod</span><span class="tag">n8n</span></div>
+      </div>
+    </div>
+
+    <div class="agro-grid">
+      <div class="browser rv">
+        <div class="bar"><i></i><i></i><i></i><span class="url">agroplan · /talhoes/novo</span></div>
+        <div class="view"><img class="zoomable" src="assets/agroplan/mapa.jpg" alt="AgroPlan: cadastro de talhão desenhando a área no mapa de satélite"></div>
+      </div>
+      <div class="phone vid rv d2" title="Vídeo demo gravado com Playwright">
+        <div class="scr"><video poster="assets/agroplan/demo-poster.jpg?v=2" autoplay muted loop playsinline preload="metadata"><source src="assets/agroplan/demo.webm?v=2" type="video/webm"><source src="assets/agroplan/demo.mp4?v=2" type="video/mp4"></video></div>
+      </div>
+    </div>
+
+    <div class="strip rv">
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/dashboard.jpg" alt="Dashboard do AgroPlan"></div></div><figcaption><b>Dashboard</b> — fazendas, área, máquinas e alertas por grupo e safra</figcaption></figure>
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/estoque.jpg" alt="Estoque do AgroPlan"></div></div><figcaption><b>Estoque</b> — saldo, lotes com validade (FEFO) e valor imobilizado</figcaption></figure>
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/talhao.jpg" alt="Detalhe do talhão"></div></div><figcaption><b>Talhão</b> — operações, análises de solo e QR Code</figcaption></figure>
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/maquinas.jpg" alt="Máquinas"></div></div><figcaption><b>Máquinas</b> — horímetro, custo/hora e manutenção preventiva</figcaption></figure>
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/relatorios.jpg" alt="Relatórios"></div></div><figcaption><b>Relatórios</b> — custo da safra por insumo, máquina e mão de obra</figcaption></figure>
+      <figure><div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img class="zoomable" loading="lazy" src="assets/agroplan/operacoes.jpg" alt="Operações"></div></div><figcaption><b>Operações</b> — plantio, adubação, pulverização e colheita</figcaption></figure>
+    </div>
+    <p class="hint">← arraste para ver mais telas · clique para ampliar</p>
+
+    <div class="facts rv">
+      <div><strong data-count="19">19</strong><span>documentos de especificação antes da 1ª linha de código</span></div>
+      <div><strong data-count="10">10</strong><span>scripts SQL versionados, com RLS multi-tenant</span></div>
+      <div><strong data-count="4">4</strong><span>cargos com permissões granulares</span></div>
+      <div><strong data-count="6">6</strong><span>fases de roadmap, 5 já com fluxo funcionando</span></div>
+    </div>
+
+    <div class="two">
+      <div class="panel rv">
+        <h4>Arquitetura em <span class="it">camadas</span></h4>
+        <p>O frontend nunca fala com o banco. Regras vivem no domínio; o banco é a barreira final.</p>
+        <div class="layers">
+          <div class="layer"><b>apps/web</b><span>Next.js · telas</span></div>
+          <div class="arrow">↓</div>
+          <div class="layer"><b>packages/services</b><span>permissão · validação · casos de uso</span></div>
+          <div class="arrow">↓</div>
+          <div class="layer"><b>packages/data</b><span>contratos · mock · Supabase</span></div>
+          <div class="arrow">↓</div>
+          <div class="layer"><b>packages/core</b><span>domínio puro · Zod · regras</span></div>
+          <div class="arrow">↓</div>
+          <div class="layer db"><b>PostgreSQL + PostGIS</b><span>Row Level Security</span></div>
+        </div>
+      </div>
+      <div class="panel rv d1">
+        <h4>O que ele <span class="it">resolve</span></h4>
+        <p>Do escritório ao pé da lavoura.</p>
+        <ul class="feat">
+          <li data-i="01"><div><b>Área real, não estimada.</b> <span>Desenhe o talhão no mapa ou importe KML; hectares calculados com PostGIS.</span></div></li>
+          <li data-i="02"><div><b>Custo por hectare.</b> <span>Insumos, máquinas e mão de obra apropriados a cada operação.</span></div></li>
+          <li data-i="03"><div><b>Rastreabilidade.</b> <span>Placa com QR Code: qualquer um consulta aplicações e carência pelo celular.</span></div></li>
+          <li data-i="04"><div><b>Roda sem banco.</b> <span>Modo demonstração em memória — liga o Supabase só com variáveis de ambiente.</span></div></li>
+          <li data-i="05"><div><b>Lançamento por WhatsApp.</b> <span>Nota fiscal e operação rápida via n8n + Meta Cloud API, sempre com confirmação.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 ORBITRA ============ -->
+<section class="case" id="orbitra" style="--c:var(--orb)">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="rv">
+        <div class="lbl"><span class="dot"></span><span class="mono">02 — Produto pessoal · 2026 · fase 6 de 7</span></div>
+        <h3>Orbi<span class="it">tra</span></h3>
+      </div>
+      <div class="rv d1">
+        <p class="lead">Um lugar só para <strong>tarefas, dinheiro e memória</strong>. Quadros estilo Trello, controle de gastos com orçamento por categoria e um histórico que registra <strong>tudo</strong> o que acontece — venha da web, do WhatsApp ou da API.</p>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL / Neon</span><span class="tag">Auth.js</span><span class="tag">dnd-kit</span><span class="tag">shadcn/ui</span><span class="tag">PWA</span><span class="tag">Vercel Blob</span></div>
+      </div>
+    </div>
+
+    <div class="compare rv" id="compare">
+      <img src="assets/orbitra/gastos-light.jpg" alt="Orbitra no tema claro: tela de gastos">
+      <img class="top" src="assets/orbitra/gastos.jpg" alt="Orbitra no tema escuro: tela de gastos">
+      <div class="handle"></div>
+      <span class="tagL">CLARO</span><span class="tagR">ESCURO</span>
+    </div>
+    <p class="hint">↔ arraste para comparar os temas</p>
+
+    <div class="phones rv">
+      <div class="phone"><div class="scr"><img loading="lazy" class="zoomable" src="assets/orbitra/m-hoje.jpg" alt="Orbitra no celular: tela Hoje"></div></div>
+      <div class="phone"><div class="scr"><img loading="lazy" class="zoomable" src="assets/orbitra/m-quadro.jpg" alt="Orbitra no celular: quadro Kanban"></div></div>
+      <div class="phone"><div class="scr"><img loading="lazy" class="zoomable" src="assets/orbitra/m-gastos.jpg" alt="Orbitra no celular: gastos"></div></div>
+    </div>
+
+    <div class="two">
+      <div class="panel rv">
+        <h4>Nada se <span class="it">perde</span></h4>
+        <p>Toda mutação passa por um service que grava o <code class="mono" style="text-transform:none">ActivityLog</code> com antes/depois e origem.</p>
+        <div class="orb-log" id="orblog">
+          <div><span>09:14</span><span class="src">web</span><span>Moveu “Mapa Leaflet” para Fazendo</span></div>
+          <div><span>12:31</span><span class="src wa">whatsapp</span><span>Lançou despesa R$ 48,90 · Alimentação</span></div>
+          <div><span>15:02</span><span class="src">web</span><span>Concluiu checklist “Endpoint de leitura”</span></div>
+          <div><span>18:40</span><span class="src api">api</span><span>Criou cartão “Revisar PR” via n8n</span></div>
+          <div><span>21:05</span><span class="src">web</span><span>Tarefa recorrente avançou para 19/11</span></div>
+        </div>
+      </div>
+      <div class="panel rv d1">
+        <h4>Decisões <span class="it">de projeto</span></h4>
+        <p>Planejado em 7 fases antes do primeiro commit.</p>
+        <ul class="feat" style="--agro:var(--orb)">
+          <li data-i="R$"><div><b>Dinheiro em centavos.</b> <span>Inteiros no banco, sem erro de ponto flutuante.</span></div></li>
+          <li data-i="⟲"><div><b>Recorrência que não escorrega.</b> <span>“Todo dia 31” continua 31 quando o mês permite.</span></div></li>
+          <li data-i="∅"><div><b>Nada é apagado.</b> <span>Arquivamento com <code>archivedAt</code> — histórico sempre íntegro.</span></div></li>
+          <li data-i="⌁"><div><b>API por token.</b> <span>Pronta para o mesmo n8n que já atende o AgroPlan.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 INTEGRAÇÃO ============ -->
+<section class="case" id="integracao" style="--c:var(--lime)">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="rv">
+        <div class="lbl"><span class="dot"></span><span class="mono">03 — Trabalho · saúde / diagnóstico por imagem</span></div>
+        <h3>Integrar por <span class="it">configuração</span></h3>
+      </div>
+      <div class="rv d1">
+        <p class="lead">Na empresa onde trabalho, cada hospital novo exigia alterar o integrador em Delphi. Propus e prototipei um <strong>conector configurável</strong>: um formato canônico de exame + um arquivo de mapeamento por cliente. Cliente novo vira <strong>configuração, não código</strong>.</p>
+        <div class="tags"><span class="tag">Python (stdlib)</span><span class="tag">PyInstaller</span><span class="tag">REST / paginação</span><span class="tag">Agendador do Windows</span><span class="tag">Delphi (leitura)</span><span class="tag">Firebird</span></div>
+      </div>
+    </div>
+
+    <div class="panel flow rv" style="padding:24px 18px">
+      <svg viewBox="0 0 1000 250" role="img" aria-label="Fluxo: sistema do hospital envia para o conector, que gera JSON canônico para o integrador e o PACS">
+        <path class="wire" id="w1" d="M200 125 H330"/><path class="pulse" d="M200 125 H330"/>
+        <path class="wire" d="M560 125 H690"/><path class="pulse" d="M560 125 H690" style="animation-delay:.6s"/>
+        <path class="wire" d="M860 125 H905"/><path class="pulse" d="M860 125 H905" style="animation-delay:1.2s"/>
+        <path class="wire" d="M445 60 V30 H780 V82" stroke-dasharray="4 4"/>
+        <text x="612" y="22" class="sub" text-anchor="middle">retorno do laudo (em desenho)</text>
+        <g class="node"><rect x="20" y="70" width="180" height="110" rx="12"/><text x="40" y="112" font-size="17" font-weight="600">HIS / RIS</text><text x="40" y="136" class="sub">API · banco · arquivos</text><text x="40" y="156" class="sub">vários fornecedores</text></g>
+        <g class="node hl"><rect x="330" y="60" width="230" height="130" rx="12"/><text x="350" y="100" font-size="17" font-weight="600">Conector</text><text x="350" y="124" class="sub">clientes/&lt;x&gt;/config.json</text><text x="350" y="144" class="sub">estado · logs · retentativas</text><text x="350" y="164" class="sub">.exe + tarefa agendada</text></g>
+        <g class="node"><rect x="690" y="82" width="170" height="86" rx="12"/><text x="710" y="118" font-size="17" font-weight="600">Integrator</text><text x="710" y="142" class="sub">JSON canônico</text></g>
+        <g class="node"><rect x="905" y="82" width="80" height="86" rx="12"/><text x="945" y="130" font-size="16" font-weight="600" text-anchor="middle">PACS</text></g>
+      </svg>
+    </div>
+
+    <div class="two">
+      <div class="panel rv">
+        <h4>Um cliente = <span class="it">um arquivo</span></h4>
+        <p>Exemplo ilustrativo do mapeamento (dados fictícios).</p>
+<div class="code"><span class="c">// clientes/hospital-exemplo/config.json</span>
+{
+  <span class="k">"origem"</span>: { <span class="k">"tipo"</span>: <span class="s">"api"</span>, <span class="k">"metodo"</span>: <span class="s">"GET"</span>, <span class="k">"paginacao"</span>: <span class="s">"page"</span> },
+  <span class="k">"intervalo_min"</span>: 5,
+  <span class="k">"mapeamento"</span>: {
+    <span class="k">"accession_number"</span>: <span class="s">"$.exame.codigo"</span>,
+    <span class="k">"paciente_nome"</span>:    <span class="s">"$.paciente.nome"</span>,
+    <span class="k">"modalidade"</span>:       <span class="s">"$.exame.modalidade"</span>
+  }
+}</div>
+      </div>
+      <div class="panel rv d1">
+        <h4>Pronto para <span class="it">implantar</span></h4>
+        <p>Pensado para quem instala, não só para quem programa.</p>
+        <ul class="feat" style="--agro:var(--lime)">
+          <li data-i="01"><div><b>Sem dependências.</b> <span>Python só com biblioteca padrão, empacotado em um único .exe.</span></div></li>
+          <li data-i="02"><div><b>Instalador de um clique.</b> <span>Cria a tarefa agendada como serviço; desinstalador incluso.</span></div></li>
+          <li data-i="03"><div><b>Modos de teste.</b> <span><code>--offline</code> e <code>--simular</code> para validar sem tocar produção.</span></div></li>
+          <li data-i="04"><div><b>Validado em API real.</b> <span>24h de exames, paginação ok, zero erros.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 LANDINGS ============ -->
+<section class="case" id="landings">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="rv">
+        <div class="lbl"><span class="dot" style="background:var(--amber)"></span><span class="mono">04 — Landing pages · negócios locais</span></div>
+        <h3>Cada marca, <span class="it">sua voz</span></h3>
+      </div>
+      <div class="rv d1">
+        <p class="lead">Sites de uma página para bares e restaurantes: identidade própria, <strong>reserva direto no WhatsApp</strong>, cardápio, galeria, mapa e carregamento rápido — HTML e CSS feitos à mão, sem framework.</p>
+      </div>
+    </div>
+    <div class="land-grid">
+      <article class="land rv">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">paradortexasbar</span></div><div class="view"><img loading="lazy" src="assets/landings/texas-full.jpg" alt="Landing page do Parador Texas Bar, página inteira"></div></div>
+        <div class="meta">
+          <div><h4>Parador Texas Bar</h4><p>Rock, chopp e Harley-Davidson. Vídeo no hero, tipografia condensada e brasas animadas.</p></div>
+          <div class="sw"><i style="background:#0a0908"></i><i style="background:#e8720c"></i><i style="background:#b91c1c"></i><i style="background:#f2e9dc"></i></div>
+        </div>
+      </article>
+      <article class="land rv d1">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">restaurantedubai</span></div><div class="view"><img loading="lazy" src="assets/landings/dubai-full.jpg" alt="Landing page do Restaurante Dubai, página inteira"></div></div>
+        <div class="meta">
+          <div><h4>Restaurante Dubai</h4><p>Comida árabe com vista para o mar. Serifa clássica, padrão geométrico árabe, dourado e terracota.</p></div>
+          <div class="sw"><i style="background:#0a2626"></i><i style="background:#d4af37"></i><i style="background:#c1592f"></i><i style="background:#f7f0df"></i></div>
+        </div>
+      </article>
+    </div>
+    <p class="hint">passe o mouse sobre o site para rolar a página inteira</p>
+  </div>
+</section>
+
+<!-- ============ 05 LAB ============ -->
+<section class="case" id="lab">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Também no <span class="it serif">laboratório</span></h2>
+      <span class="mono">dados · conteúdo · automação</span>
+    </div>
+    <div class="lab-grid">
+      <article class="card rv">
+        <div class="img"><img class="zoomable" loading="lazy" src="assets/outros/mer-oficina.png" alt="Modelo entidade-relacionamento do banco de uma oficina"></div>
+        <div class="bd"><h4>Banco de uma oficina</h4><p>Modelagem relacional completa — MER, script SQL e documentação de clientes, veículos, serviços, funcionários e estoque de peças.</p></div>
+      </article>
+      <article class="card rv d1">
+        <div class="img slides"><img loading="lazy" src="assets/outros/slide_1.png" alt="Slide 1 do carrossel Clean Code"><img loading="lazy" src="assets/outros/slide_2.png" alt="Slide 2"><img loading="lazy" src="assets/outros/slide_3.png" alt="Slide 3"></div>
+        <div class="bd"><h4>Carrosséis de código</h4><p>Conteúdo técnico para o Instagram, gerado em HTML e exportado em 1080×1350 com Playwright.</p></div>
+      </article>
+      <article class="card rv d2">
+        <div class="wa">
+          <div class="bub me">chegou nota: 20 sc de MAP, R$ 4.820<small>12:31</small></div>
+          <div class="bub bot">Entrada de estoque: <b>MAP</b> · 1.000 kg · R$ 4.820,00. Confirma? (sim/não)<small>12:31</small></div>
+          <div class="bub me">sim<small>12:32</small></div>
+          <div class="bub bot">✅ Lançado no AgroPlan.<small>12:32</small></div>
+        </div>
+        <div class="bd"><h4>WhatsApp → sistema</h4><p>Automação com n8n e Meta Cloud API: o produtor fala, o sistema entende e só grava depois de confirmar.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about" id="sobre">
+  <div class="wrap about-grid">
+    <blockquote class="rv">Eu gosto de software que <span class="it">aguenta o mundo real</span> — conexão ruim, regra de negócio estranha, usuário com pressa.</blockquote>
+    <div class="txt rv d1">
+      <p>Trabalho com integração de sistemas na área de saúde e, em paralelo, construo meus próprios produtos. Começo pelo papel: documento, modelo os dados e registro cada decisão com o porquê. Depois construo em camadas, para que trocar o banco ou a tela não quebre a regra.</p>
+      <p>Me importo com segurança desde o início — isolamento por cliente, validação no servidor, nada de segredo no front — e com a experiência de quem vai usar no celular, no meio da lavoura ou do expediente.</p>
+      <div class="skills">
+        <div><h5>Construo com</h5><ul><li>Next.js, React e TypeScript</li><li>PostgreSQL, PostGIS e Prisma</li><li>Supabase (Auth, RLS, Storage)</li><li>Python para integrações</li></ul></div>
+        <div><h5>Também faço</h5><ul><li>Modelagem e documentação</li><li>Automação com n8n e WhatsApp</li><li>Landing pages sob medida</li><li>Revisão de segurança web</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contact" id="contato">
+  <div class="wrap">
+    <span class="mono rv">Tem um processo que ainda vive em planilha e WhatsApp?</span>
+    <a class="big rv d1" href="mailto:eduardopetry968@gmail.com" style="margin-top:20px">Vamos <span class="it">construir</span>.</a>
+    <div class="contact-row rv d2">
+      <a href="mailto:eduardopetry968@gmail.com">E-mail <small>eduardopetry968@gmail.com</small></a>
+      <a href="https://github.com/Eduardo-Crypto66" target="_blank" rel="noopener">GitHub <small>Eduardo-Crypto66</small></a>
+      <a href="https://instagram.com/edu__alves04" target="_blank" rel="noopener">Instagram <small>@edu__alves04</small></a>
+    </div>
+    <footer>
+      <span class="mono">© 2026 Eduardo Alves</span>
+      <span class="mono">Feito à mão · HTML, CSS e um canvas</span>
+      <a class="mono" href="#top">Voltar ao topo ↑</a>
+    </footer>
+  </div>
+</section>
+
+<div class="lb" id="lb"><span class="x">ESC · FECHAR</span><img alt=""></div>
+
+<script>
+/* ---------- topographic canvas ---------- */
+(() => {
+  const cv = document.getElementById('topo'), ctx = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, dpr, cols, rows, field, cell = 14, t = Math.random() * 100, mx = -1e4, my = -1e4, tmx = -1e4, tmy = -1e4, visible = true;
+  const LEVELS = 14;
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cell = W < 700 ? 18 : 14;
+    cols = Math.ceil(W / cell) + 1; rows = Math.ceil(H / cell) + 1;
+    field = new Float32Array(cols * rows);
+  }
+  function f(x, y) {
+    const s = 0.0042;
+    let v = Math.sin(x * s * 1.0 + t * .23) * Math.cos(y * s * 1.3 - t * .17)
+          + .55 * Math.sin((x * .7 + y) * s * 1.9 + t * .31)
+          + .35 * Math.cos((x - y * .6) * s * 2.7 - t * .27)
+          + .2 * Math.sin(Math.hypot(x - W * .7, y - H * .35) * s * 3.2 - t * .4);
+    const dx = x - mx, dy = y - my;
+    v += 1.4 * Math.exp(-(dx * dx + dy * dy) / 18000);
+    return v;
+  }
+  const lerp = (a, b, l) => (l - a) / (b - a);
+  function draw() {
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) field[j * cols + i] = f(i * cell, j * cell);
+    ctx.clearRect(0, 0, W, H);
+    for (let k = 0; k < LEVELS; k++) {
+      const l = -2 + (k + .5) * (4.4 / LEVELS);
+      const major = k % 4 === 1;
+      ctx.beginPath();
+      ctx.strokeStyle = major ? 'rgba(214,248,76,.55)' : 'rgba(214,220,190,.16)';
+      ctx.lineWidth = major ? 1.2 : 1;
+      for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+        const a = field[j * cols + i], b = field[j * cols + i + 1], c = field[(j + 1) * cols + i + 1], d = field[(j + 1) * cols + i];
+        const idx = (a > l) | ((b > l) << 1) | ((c > l) << 2) | ((d > l) << 3);
+        if (idx === 0 || idx === 15) continue;
+        const x = i * cell, y = j * cell;
+        const T = [x + cell * lerp(a, b, l), y], R = [x + cell, y + cell * lerp(b, c, l)],
+              B = [x + cell * lerp(d, c, l), y + cell], L = [x, y + cell * lerp(a, d, l)];
+        const seg = (p, q) => { ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); };
+        switch (idx) {
+          case 1: case 14: seg(L, T); break;
+          case 2: case 13: seg(T, R); break;
+          case 3: case 12: seg(L, R); break;
+          case 4: case 11: seg(R, B); break;
+          case 5: seg(L, T); seg(R, B); break;
+          case 6: case 9: seg(T, B); break;
+          case 7: case 8: seg(L, B); break;
+          case 10: seg(T, R); seg(L, B); break;
+        }
+      }
+      ctx.stroke();
+    }
+  }
+  let last = 0;
+  function loop(now) {
+    requestAnimationFrame(loop);
+    if (!visible || now - last < 33) return;
+    last = now;
+    t += .018;
+    mx += (tmx - mx) * .08; my += (tmy - my) * .08;
+    draw();
+  }
+  addEventListener('resize', resize);
+  addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); tmx = e.clientX - r.left; tmy = e.clientY - r.top; if (mx < -1e3) { mx = tmx; my = tmy; } });
+  new IntersectionObserver(([e]) => visible = e.isIntersecting).observe(cv);
+  resize();
+  if (reduce) draw(); else requestAnimationFrame(loop);
+})();
+
+/* ---------- clock ---------- */
+(() => {
+  const el = document.getElementById('clock');
+  const tick = () => el.textContent = 'Brasil · ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' });
+  tick(); setInterval(tick, 15000);
+})();
+
+/* ---------- nav ---------- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+
+/* ---------- reveal ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.rv, .orb-log').forEach(el => io.observe(el));
+document.querySelectorAll('.orb-log div').forEach((d, i) => d.style.transitionDelay = (.3 + i * .25) + 's');
+
+/* ---------- index peek ---------- */
+(() => {
+  const peek = document.getElementById('peek'), imgs = peek.querySelectorAll('img');
+  let x = 0, y = 0, px = 0, py = 0, raf;
+  const move = () => { px += (x - px) * .18; py += (y - py) * .18; peek.style.left = px + 'px'; peek.style.top = py + 'px'; raf = requestAnimationFrame(move); };
+  document.querySelectorAll('#idx a').forEach(a => {
+    a.addEventListener('mouseenter', e => { imgs.forEach((im, i) => im.classList.toggle('on', i == a.dataset.peek)); peek.classList.add('on'); px = x = e.clientX; py = y = e.clientY; cancelAnimationFrame(raf); move(); });
+    a.addEventListener('mousemove', e => { x = e.clientX + 60; y = e.clientY; });
+    a.addEventListener('mouseleave', () => { peek.classList.remove('on'); cancelAnimationFrame(raf); });
+  });
+})();
+
+/* ---------- compare slider ---------- */
+(() => {
+  const c = document.getElementById('compare');
+  let drag = false;
+  const set = e => { const r = c.getBoundingClientRect(); const p = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); c.style.setProperty('--p', p + '%'); };
+  c.addEventListener('pointerdown', e => { drag = true; c.setPointerCapture(e.pointerId); set(e); });
+  c.addEventListener('pointermove', e => { if (drag || e.pointerType === 'mouse') set(e); });
+  c.addEventListener('pointerup', () => drag = false);
+})();
+
+/* ---------- landing scroll distance ---------- */
+const fitLand = () => document.querySelectorAll('.land .view').forEach(v => v.style.setProperty('--vh', v.clientHeight + 'px'));
+addEventListener('resize', fitLand); addEventListener('load', fitLand);
+
+/* ---------- lightbox ---------- */
+(() => {
+  const lb = document.getElementById('lb'), im = lb.querySelector('img');
+  document.querySelectorAll('.zoomable').forEach(z => z.addEventListener('click', () => { im.src = z.currentSrc || z.src; im.alt = z.alt; lb.classList.add('on'); }));
+  const close = () => lb.classList.remove('on');
+  lb.addEventListener('click', close);
+  addEventListener('keydown', e => e.key === 'Escape' && close());
+})();
+</script>
+</body>
+</html>
